@@ -5,6 +5,7 @@ class Map extends Component {
     mapRef = createRef(null);
 
     state = {
+        token: process.env.MAPBOX_TOKEN,
         viewport: {
             width: '100vw',
             height: '100vh',
@@ -28,20 +29,18 @@ class Map extends Component {
                     width: w
                 }
             });
-
-            console.log('Rezised', {w, h});
         });
     };
 
     render() {
+        const {token, viewport} = this.state;
         return (
             <ReactMapGL
                 ref={this.mapRef}
                 mapStyle="mapbox://styles/mapbox/dark-v9"
-                mapboxApiAccessToken="pk.eyJ1IjoiZGV2cGsiLCJhIjoiY2pyY2N3enlpMGR3dDN5cDQzcTFrZmV0aSJ9.wsCcKn40AES8XjYfNHOOlA"
-                {...this.state.viewport}
+                mapboxApiAccessToken={`${token}`}
+                {...viewport}
                 onViewportChange={(viewport) => {
-                    console.log(viewport);
                     this.setState({viewport});
                 }}
             />
