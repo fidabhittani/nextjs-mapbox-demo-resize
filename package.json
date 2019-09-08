@@ -1,17 +1,12 @@
 {
     "name": "next-mapbox-demo",
-    "description": "Creating a non-SSR map component inside a Next.js project.",
+    "description": "Non SSR Map Demo.",
     "version": "1.0.0",
     "author": {
-        "name": "Lee Robinson",
-        "email": "lrobinson2011@gmail.com",
-        "url": "https://next-mapbox-demo.now.sh"
+        "name": "Fida Bhittani",
+        "email": "khan.kansas@gmail.com"
     },
     "license": "MIT",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/leerob/next-mapbox-demo.git"
-    },
     "scripts": {
         "dev": "next",
         "build": "next build",
@@ -24,6 +19,8 @@
         "react": "^16.7.0",
         "react-dom": "^16.7.0",
         "react-map-gl": "^4.0.7",
+        "react-virtualized": "^9.21.1",
+        "react-virtualized-auto-sizer": "^1.0.2",
         "styled-components": "^4.1.3"
     },
     "devDependencies": {
