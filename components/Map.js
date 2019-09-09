@@ -1,6 +1,8 @@
 import {Component, createRef} from 'react';
 import ReactMapGL from 'react-map-gl';
-import {layers} from '../utils';
+import mapboxgl from 'mapbox-gl';
+import {locationsList} from '../utils';
+// import blueMarker from '../static/marker-blue.png';
 class Map extends Component {
     mapRef = createRef(null);
     map = null;
@@ -8,10 +10,10 @@ class Map extends Component {
         token: process.env.MAPBOX_TOKEN,
         viewport: {
             width: '100vw',
-            height: '100vh',
+            height: '100%',
 
-            latitude: 35.8788409,
-            longitude: -115.595196,
+            latitude: -33.7988,
+            longitude: 151.1,
             zoom: 7
         }
     };
@@ -90,6 +92,27 @@ class Map extends Component {
         });
     };
 
+    /** Process Markers */
+
+    processMarkers = () => {
+        locationsList.forEach(({latitude, longitude, status, name, size}) => {
+            console.log(latitude, longitude);
+            if (!(latitude && longitude)) return;
+            const el = document.createElement('div');
+            el.className = 'marker';
+            el.style.backgroundImage = `url(/static/marker-${status === 'active' ? 'blue' : 'grey'}.png)`;
+
+            el.style.width = size.width || '31px';
+            el.style.height = size.height || '41px';
+            el.title = name;
+            el.addEventListener('click', () => {
+                window.alert(name);
+            });
+
+            new mapboxgl.Marker(el).setLngLat([longitude, latitude]).addTo(this.map);
+        });
+    };
+
     /** ONN LOAD */
     componentDidMount = () => {
         const {current: mapRef} = this.mapRef;
@@ -99,9 +122,10 @@ class Map extends Component {
 
         this.map &&
             this.map.on('load', () => {
-                this.addSource();
-                this.processLayers();
-                this.processEvents();
+                this.processMarkers();
+                // this.addSource();
+                // this.processLayers();
+                // this.processEvents();
             });
     };
 

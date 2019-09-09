@@ -10,4 +10,5 @@ Built using:
 -   [react-map-gl](https://uber.github.io/react-map-gl/#/)
 -   [Prettier](https://prettier.io/)
 -   [styled-components](https://www.styled-components.com/)
+
 # nextjs-mapbox-demo-resize

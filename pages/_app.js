@@ -1,4 +1,4 @@
-import App, {Container} from 'next/app';
+import App from 'next/app';
 import Head from 'next/head';
 import React from 'react';
 
@@ -27,6 +27,8 @@ class MyApp extends App {
                     <meta content="width=device-width, initial-scale=1" name="viewport" />
                     <link href="/static/favicon.ico" rel="shortcut icon" />
                     <link href="https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css" rel="stylesheet" />
+                    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
+
                     <meta content={description} name="description" />
                     <meta property="og:title" content={title} />
                     <meta property="og:image" content="/static/banner.jpg" />
