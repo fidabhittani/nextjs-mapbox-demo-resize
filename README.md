@@ -1,14 +1,10 @@
-# 🌎 next-mapbox-demo
+# Nextjs Mapbox Demo
 
-> Creating a non-SSR map component inside a Next.js project.
+> Non SSR Nextjs Map Component Demo.
 
-Built using:
+Tech Used:
 
--   [Next.js](https://nextjs.org/)
--   [Now](https://zeit.co/now)
--   [Mapbox](https://www.mapbox.com/)
--   [react-map-gl](https://uber.github.io/react-map-gl/#/)
--   [Prettier](https://prettier.io/)
--   [styled-components](https://www.styled-components.com/)
-
-# nextjs-mapbox-demo-resize
+-- [Next.js](https://nextjs.org/)
+-- [Now](https://zeit.co/now)
+-- [Mapbox](https://www.mapbox.com/)
+-- [react-map-gl](https://uber.github.io/react-map-gl/#/)
