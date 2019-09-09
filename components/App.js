@@ -149,6 +149,7 @@ class App extends Component {
                             padding: 0;
                             box-shadow: none;
                             margin: 0;
+                            flex: 3;
                         }
                         .app > .side-bar > .item > .header {
                             padding: 5px;
