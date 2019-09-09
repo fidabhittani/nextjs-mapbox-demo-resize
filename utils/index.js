@@ -106,7 +106,9 @@ export const locationsList = {
     features: [
         {
             type: 'Feature',
-            properties: {},
+            properties: {
+                active: true
+            },
             geometry: {
                 type: 'Point',
                 coordinates: [150.57861328125, -34.05265942137597]
@@ -114,7 +116,9 @@ export const locationsList = {
         },
         {
             type: 'Feature',
-            properties: {},
+            properties: {
+                active: true
+            },
             geometry: {
                 type: 'Point',
                 coordinates: [150.0732421875, -34.488447837809304]
@@ -122,7 +126,9 @@ export const locationsList = {
         },
         {
             type: 'Feature',
-            properties: {},
+            properties: {
+                active: false
+            },
             geometry: {
                 type: 'Point',
                 coordinates: [149.52392578125, -33.669496972795535]
@@ -130,7 +136,9 @@ export const locationsList = {
         },
         {
             type: 'Feature',
-            properties: {},
+            properties: {
+                active: false
+            },
             geometry: {
                 type: 'Point',
                 coordinates: [149.1943359375, -34.74161249883172]
@@ -138,7 +146,9 @@ export const locationsList = {
         },
         {
             type: 'Feature',
-            properties: {},
+            properties: {
+                active: true
+            },
             geometry: {
                 type: 'Point',
                 coordinates: [150.0732421875, -35.78217070326606]
@@ -146,7 +156,9 @@ export const locationsList = {
         },
         {
             type: 'Feature',
-            properties: {},
+            properties: {
+                active: true
+            },
             geometry: {
                 type: 'Point',
                 coordinates: [150.62255859375, -32.8795871730663]

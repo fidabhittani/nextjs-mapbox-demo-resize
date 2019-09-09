@@ -60,19 +60,27 @@ class Map extends Component {
 
         /** Load and Add Icons to map before using them */
         this.map.loadImage('/static/marker-blue.png', (error, blueMarker) => {
-            this.map.loadImage('/static/marker-blue.png', (error, greyMarker) => {
+            this.map.loadImage('/static/marker-grey.png', (error, greyMarker) => {
                 this.map.addImage('greyMarker', greyMarker);
                 this.map.addImage('blueMarker', blueMarker);
 
-                this.map.addLayer({
-                    id: 'unclustered-point',
-                    type: 'symbol',
-                    source: 'data_markers',
-                    filter: ['!', ['has', 'point_count']],
-                    layout: {
-                        'icon-image': 'greyMarker',
-                        'icon-size': 1
-                    }
+                /** InACTIVE MARKERS */
+
+                ['active', 'inactive'].forEach((layer) => {
+                    const activeLayer = layer === 'active';
+
+                    this.map.addLayer({
+                        id: `unclustered-point-${layer}`,
+                        type: 'symbol',
+                        source: 'data_markers',
+                        filter: ['!', ['has', 'point_count']],
+                        filter: ['==', 'active', !!activeLayer],
+
+                        layout: {
+                            'icon-image': activeLayer ? 'blueMarker' : 'greyMarker',
+                            'icon-size': 1
+                        }
+                    });
                 });
             });
         });
