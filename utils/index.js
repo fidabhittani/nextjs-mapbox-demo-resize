@@ -1,42 +1,3 @@
-export const sampleMarkersGeoJSON = {
-    type: 'FeatureCollection',
-    features: [
-        {
-            type: 'Feature',
-            properties: {
-                message: 'Foo',
-                iconSize: [60, 60]
-            },
-            geometry: {
-                type: 'Point',
-                coordinates: [-66.324462890625, -16.024695711685304]
-            }
-        },
-        {
-            type: 'Feature',
-            properties: {
-                message: 'Bar',
-                iconSize: [50, 50]
-            },
-            geometry: {
-                type: 'Point',
-                coordinates: [-61.2158203125, -15.97189158092897]
-            }
-        },
-        {
-            type: 'Feature',
-            properties: {
-                message: 'Baz',
-                iconSize: [40, 40]
-            },
-            geometry: {
-                type: 'Point',
-                coordinates: [-63.29223632812499, -18.28151823530889]
-            }
-        }
-    ]
-};
-
 const createNewLat = (latitude = 0, meters = 1000) => {
     const earth = 6378.137, //radius of the earth in kilometer
         pi = Math.PI,
@@ -59,7 +20,7 @@ const size = {
     height: `41px`
 };
 
-export const locationsList = [
+export const locationsList2 = [
     {
         name: 'Bobbin Head',
         latitude: -33.655546,
@@ -139,3 +100,88 @@ export const locationsList = [
         size: {...size}
     }
 ];
+
+export const locationsList = {
+    type: 'FeatureCollection',
+    features: [
+        {
+            type: 'Feature',
+            properties: {},
+            geometry: {
+                type: 'Point',
+                coordinates: [150.57861328125, -34.05265942137597]
+            }
+        },
+        {
+            type: 'Feature',
+            properties: {},
+            geometry: {
+                type: 'Point',
+                coordinates: [150.0732421875, -34.488447837809304]
+            }
+        },
+        {
+            type: 'Feature',
+            properties: {},
+            geometry: {
+                type: 'Point',
+                coordinates: [149.52392578125, -33.669496972795535]
+            }
+        },
+        {
+            type: 'Feature',
+            properties: {},
+            geometry: {
+                type: 'Point',
+                coordinates: [149.1943359375, -34.74161249883172]
+            }
+        },
+        {
+            type: 'Feature',
+            properties: {},
+            geometry: {
+                type: 'Point',
+                coordinates: [150.0732421875, -35.78217070326606]
+            }
+        },
+        {
+            type: 'Feature',
+            properties: {},
+            geometry: {
+                type: 'Point',
+                coordinates: [150.62255859375, -32.8795871730663]
+            }
+        }
+    ]
+};
+
+const mapLayers = [
+    {
+        id: 'clusters',
+        type: 'circle',
+        source: 'data_markers',
+        filter: ['has', 'point_count'],
+        paint: {
+            'circle-color': ['step', ['get', 'point_count'], '#51bbd6', 100, '#f1f075', 750, '#f28cb1'],
+            'circle-radius': ['step', ['get', 'point_count'], 20, 100, 30, 750, 40]
+        }
+    },
+    {
+        id: 'cluster-count',
+        type: 'symbol',
+        source: 'data_markers',
+        filter: ['has', 'point_count'],
+        layout: {
+            'text-field': '{point_count}',
+            'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
+            'text-size': 15,
+            'icon-image': '{marker-symbol}',
+            'icon-size': 1
+        },
+        paint: {
+            'text-color': 'white'
+        }
+    }
+];
+
+export const layers = mapLayers;

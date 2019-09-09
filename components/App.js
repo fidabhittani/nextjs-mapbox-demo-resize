@@ -2,7 +2,7 @@ import {Component} from 'react';
 import dynamic from 'next/dynamic';
 
 const Map = dynamic(() => import('./Map'), {ssr: false});
-import {locationsList} from '../utils';
+import {locationsList2 as locationsList} from '../utils';
 class App extends Component {
     state = {
         visible: {
